@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>slidedoor</title>
+	<link rel="stylesheet" type="text/css" href="10.css">
+	<meta charset="utf-8">
+	
+<body>
+	<div id="container">
+		<div class="im  no1"><img src="img/140-150R0161429.jpg"></div>
+
+		<div class="im no2"><img src="img/140-150R0161437.jpg"></div>
+
+		<div class="im no3"><img src="img/140-150R0161459.jpg"></div>
+		
+	</div>
+	<div class="contro">
+		<span id="left"><</span>
+		<span id="right">></span>
+</div>	
+	<!--<div class="con"><div class="bor"><div class="title">FUCK you</div></div></div>-->
+
+<script src="jquery-3.2.0.min.js"></script>
+<script >
+	//jqurey   实现的简单的幻灯片
+	$(document).ready(function(){
+		var count=0;
+
+		//首先让第一张图片显示出
+		$("#container div:eq(0)").show();
+
+		//绑定右边点击事件
+		$("#right").click(function(){
+			$("#container div:eq("+count+")").hide();
+			count++;
+			if (count==$(".im").length) {
+				count=0;
+				$("#container div:eq("+count+")").fadeIn();
+			}else{
+				
+				$("#container div:eq("+count+")").fadeIn();
+			}
+
+		});
+
+
+		//绑定左边点击事件
+		$("#left").click(function(){
+			$("#container div:eq("+count+")").hide();
+			count--;
+			if(count<0)
+				{count=$(".im").length-1;
+				$("#container div:eq("+count+")").fadeIn();
+				}else{
+					$("#container div:eq("+count+")").fadeIn();
+				}
+				
+			
+		});
+
+		//实现自动播放
+		//
+		//
+		setInterval(function(){
+
+
+			var auto=$("#container div:eq("+count+")")
+
+		if(!auto.is(":animated"))
+		{
+		$("#container div:eq("+count+")").hide();
+			count++;
+			if (count==$(".im").length) {
+				count=0;
+				$("#container div:eq("+count+")").fadeIn();
+			}else{
+				
+				$("#container div:eq("+count+")").fadeIn();
+			}
+			console.log("lalalal")
+		}
+		},5000)
+
+})
+
+
+
+
+	
+/*	$("document").ready(function(){
+		$(".no1").mouseover(function(){
+			$(".no1").css("width","500");
+		}).mouseout(function(){
+			$(".no1").css("width","300");
+		});
+		$(".no2").mouseover(function(){
+			$(".no2").css("width","500");
+		}).mouseout(function(){
+			$(".no2").css("width","300");
+		})
+		$(".no3").mouseover(function(){
+			$(".no3").css("width","500");
+		}).mouseout(function(){
+			$(".no3").css("width","300");
+		})
+		$(".no4").mouseover(function(){
+			$(".no4").css("width","500");
+		}).mouseout(function(){
+			$(".no4").css("width","300");
+		})	
+	});*/
+
+
+
+
+
+	//简单的滑动门效果
+ /*window.onload = function() {
+	
+	var box = document.getElementById('container');
+
+	
+	var imgs = box.getElementsByTagName('img');
+
+	
+	var imgWidth = imgs[0].offsetWidth;
+
+	
+	var exposeWidth = 160;
+	
+	var boxWidth = imgWidth + (imgs.length - 1) * exposeWidth;
+	box.style.width = boxWidth + 'px';
+
+	
+	function setImgsPos() {
+		for (var i = 1, len = imgs.length; i < len; i++) {
+			imgs[i].style.left = imgWidth + exposeWidth * (i - 1) + 'px';
+		}
+	}
+	setImgsPos();
+
+	var translate=imgWidth - exposeWidth;
+
+	for (var i = 0,len=imgs.length; i<len;i++) {
+		(function(i) {
+			imgs[i].onmouseover = function(){
+
+				setImgsPos();
+
+				for (var j = 1; j <= i; j++) {
+					imgs[j].style.left = parseInt(imgs[j].style.left, 10) - translate + 'px';
+					}
+			};
+	})(i);
+
+		
+	}
+
+};*/
+
+</script>
+
+
+</body>
+</html>

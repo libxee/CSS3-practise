@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>加载动画</title>
+
+	<style type="text/css">
+	html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #50C9C3;
+  background: -webkit-linear-gradient(to left, #50C9C3, #96DEDA);
+  background: linear-gradient(to left, #50C9C3, #96DEDA);
+}
+
+.nav {
+  height: 100px;
+  width: 90px;
+  position: absolute;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  top: 45%;
+  cursor: pointer;
+}
+.nav .line{
+	position: relative;
+	width: 100%;
+	height: 3px;
+	background-color:#fff;
+	margin: 20px auto;
+}
+.nav .top{
+	top: 0;
+	animation:toprun 3s infinite;
+	animation-timing-function: cubic-bezier(0.51, 0.55, 0.27, 0.7);
+}
+@keyframes toprun {
+	0%{
+		top: -10px;
+	}
+	50%{
+		top:10px;
+	}
+	100%{
+		top: -10px;
+	}
+}
+
+.nav .bottom{
+	animation: botrun 3s infinite;
+	animation-timing-function: cubic-bezier(0.51, 0.55, 0.27, 0.7);
+}@keyframes botrun {
+	0%{
+		top: -10px;
+	}
+	50%{
+		top:10px;
+	}
+	100%{
+		top: -10px;
+	}
+}
+.nav .circle{
+	position: absolute;
+	right:-30px;
+	top: -38px;
+	height: 30px;
+	width: 30px;
+	border-radius:100%;
+	border: 2px dotted #fff;
+	animation: circlerun 3s  ease-in infinite;
+}
+.circle::after{
+	position: absolute;
+	content: '';
+	width: 10px;
+	height: 10px;
+	border: 2px dotted #fff;
+	border-radius:100%;
+	top:-10px;
+	right: -10px;
+}
+@keyframes circlerun{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+.nav .run{
+	position: absolute;
+	width: 23px;
+	height: 2px;
+	background-color:#fff;
+	top: 30px;
+	left: -10px;
+	animation: run 3s  ease-in infinite;
+	animation-timing-function: cubic-bezier(0.51, 0.55, 0.27, 0.7);
+}
+@keyframes run{
+		  0% {
+		    left: -30px;
+		    opacity: 1;
+		  }
+		  30% {
+		    left: 100px;
+		    top: 32px;
+		    opacity: 1;
+		  }
+		  50% {
+		    top: 60px;
+		    left: 100px;
+		  }
+		  60% {
+		    top: 60px;
+		    left: 100px;
+		  }
+		  70% {
+		    left: -30px;
+		    opacity: 1;
+		    top: 60px;
+		  }
+		  100% {
+		    left: -30px;
+		    opacity: 1;
+		    top: 32px;
+		  }
+}
+	</style>
+	
+</head>
+<body>
+	<div class="nav">
+		<div class="line top"></div>
+
+		<div class="line middle"></div>
+
+		<div class="line bottom"></div>
+
+		<div class="run"></div>
+
+		<div class="circle"></div>
+
+	</div>
+</body>
+</html>

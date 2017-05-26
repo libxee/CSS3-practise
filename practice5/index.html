@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>博客</title>
+	<link media="screen and (min-device-width:300px) and (max-device-width:900px)" rel="stylesheet" href="phone.css" />
+
+	<link media="screen and (min-device-width:1000px) " rel="stylesheet" href="practice5.css" />
+</head>
+<body>
+
+	<div class="header">
+		<img src="53a2720e6733d.jpg">
+		<div class="header-text1">
+		 <h1>123456</h1>
+		 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<p>
+		 
+		
+		<div class="header-text2">
+			<h1>lalalal.</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+			
+		</div>
+	</div><!--头-->
+
+
+<div class="con1">
+		<div class="con">
+			<div class="poor"> 
+			<a href="#1F" name="1F"><div class="pic2"><img src="5-16041Q44052.jpg
+			"></div>
+			</div></a>
+			<div class="text">
+				<h2>lalalalal</h2><p>lallalalalalala</p>
+			</div>
+		</div>
+
+		<div class="con">
+			<div class="poor"> <a href="#2F" name="2F">
+			<div class="pic2"><img src="140-150405160228.jpg"></div>
+			</div><a>
+			<div class="text">
+				<h2>lalalalal</h2><p>lallalalalalala</p>
+			</div>
+		</div>
+
+		<div class="con">
+			<div class="poor"> <a href="#3F" name="3F">
+			<div class="pic2"><img src="5382d522ef5a5.jpg"></div>
+			</div></a>
+			<div class="text">
+				<h2>lalalalal</h2><p>lallalalalalala</p>
+			</div>
+		</div>
+
+		<div class="con">
+			<div class="poor"> <a href="#4F" name="4F"> 
+			<div class="pic2"><img src="fend-project-6.jpg"></div>
+			</div></a>
+			<div class="text">
+				<h2>lalalalal</h2><p>lallalalalalala</p>
+			</div>
+		</div>
+</div>
+
+
+
+	<div class="contener"> 
+	<div  name="1F" id="1F" class="artical article1">
+		<div class="pic"><img src="5-16041Q44052.jpg"></div>
+		<h2>lallalal</h2> 
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ea commodo
+        ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex 		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	<div  name="2F" id="2F" class="artical article2">
+		<div class="pic"><img src="140-150405160228.jpg"></div><h2>lallalal</h2> 
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		 </div>
+	<div name="3F" id="3F" class="artical article3">	
+		<div class="pic"><img src="fend-project-6.jpg"></div>
+		<h2>lallalal</h2> 
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		 </div>
+	<div  name="4F" id="4F" class="artical article4">	
+		<div class="pic"><img src="5382d522ef5a5.jpg"></div>
+		<h2>lallalal</h2> 
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		 </div>
+	</div>
+
+
+	<div id="one">
+			<img src="5382d522ef5a5.jpg">
+			<a ><h2>lalalalal</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				</p></a>
+			
+			
+			
+		</div>
+	
+
+	<div class="footer">
+
+		<div class="text"><h2  onclick="changetext(this)">lalalla</h2>
+		<button id="Btn" >点我知道日期</button>
+		<p>lalalalalalalalalalalaal</p>
+		<p id="date">shijian</p>
+		
+		</div>
+	</div>
+
+
+<script>
+
+	var div1=document.getElementById('one');
+	
+	div1.onmouseover = function(){
+	div1.getElementsByTagName('a')[0].style.top = 0;
+	}
+	div1.onmouseout = function(){
+	div1.getElementsByTagName('a')[0].style.top = 150+'px';
+	}
+//上划动画
+
+	function changetext(FUN)
+	{
+		FUN.innerHTML="JavaScript";
+	}
+
+//改变字
+	document.getElementById("Btn").onclick=function(){displayDate()}
+	 function displayDate()
+	{
+		document.getElementById("date").innerHTML=Date();
+	};
+
+
+
+</script>
+</body>
+</html>

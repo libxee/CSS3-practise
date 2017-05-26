@@ -1,0 +1,64 @@
+
+
+.remote {
+	width: 700px;
+	position: relative;
+	margin:0 auto;
+
+}
+.remote ul{
+	margin: 0;
+	padding: 0;
+	list-style:none;
+
+}
+.remote a .hotbot{
+	position: absolute;
+}
+.remote  .left-eye .link a{
+	top: 225px;
+	left:600px;
+	height: 100px;
+	width: 100px;
+}
+.remote .right-eye.link a{
+	top: 225px;
+	left:700px;
+height: 100px;
+width: 100px;
+}
+.remote .nose.link a{
+	top: 400px;
+	left:650px;
+	height: 100px;
+	width: 100px;
+}
+
+.hotbot{
+	width: 100px;
+	display: block;
+	height: 50px;
+	border:5px;
+}
+.remote a .link{
+	position: absolute;
+	display: block;
+	width: 100px;
+	right: 100px;
+	cursor: pointer;
+}
+.remote .left-eye a .link{
+	top: 0em;
+}
+.remote .right-eye a .link{
+	top: 10em;
+}
+.remote .nose a .link{
+	top: 20em;
+}
+.remote a:hover .hotpot{
+	border: 1px solid #fff;
+}
+.remote a:hover .link{
+	border-color: #0066ff
+}

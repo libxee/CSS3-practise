@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      background-color: #333;
+    }
+
+    .custom-radios [type='radio'] {
+      position: absolute;
+      right: 100vw;
+    }
+    .custom-radios [type='radio'] + label {
+      display: inline-block;
+      overflow: hidden;
+      position: relative;
+      margin: 0 4px;
+      border: 2px solid #fff;
+      width: 2.5em;
+      height: 2.5em;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.33);
+      text-indent: 2.5em;
+      cursor: pointer;
+    }
+    .custom-radios   label:nth-of-type(1) {
+      background: #2ecc71;
+    }
+    .custom-radios  label:nth-of-type(2) {
+      background: #3498db;
+    }
+    .custom-radios  label:nth-of-type(3) {
+      background: #f1c40f;
+    }
+    .custom-radios label:nth-of-type(4) {
+      background: #e74c3c;
+    }
+    .custom-radios label:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2017/check-icn.svg") 50%/50% no-repeat;
+      transition: all .3s ease;
+      content: '';
+    }
+    .custom-radios :checked + label:before {
+      opacity: 1;
+    }
+</style>
+</head>
+<body>
+      <div class="custom-radios">
+          <input type="radio" name="c" id="c0" checked="checked"/>
+          <label for="c0">c0</label>
+          <input type="radio" name="c" id="c1"/>
+          <label for="c1">c1</label>
+          <input type="radio" name="c" id="c2"/>
+          <label for="c2">c2</label>
+          <input type="radio" name="c" id="c3"/>
+          <label for="c3">c3</label>
+      </div>
+</body>
+</html>
+

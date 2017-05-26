@@ -1,0 +1,70 @@
+.picture {
+	position: relative;
+	margin:0 auto;
+
+}
+.picture ul{
+	margin: 0;
+	padding: 0;
+	list-style:none;
+
+}
+.picture a{
+	position: absolute;
+	display: block;
+	color: #000;
+	text-decoration: none;
+	border: 1px solid transparent;
+}
+.picture a .outer{
+	display: block;
+	border: 1px solid transparent;
+}
+.picture a .outer:hover{
+	border: 1px solid #fff;
+}
+.picture a .inner{
+	display: block;
+	width: 100px;
+	height: 110px;
+	border: 1px solid transparent;
+
+}
+.picture a .inner:hover{
+	border: 1px solid #666;
+}
+.picture .ab a {
+	top: 250px;
+	left: 200px;
+}
+.picture .bc a {
+	top: 250px;
+	left: 325px;
+}
+.picture .cd a {
+	top: 250px;
+	left: 450px;
+}
+.picture .de a {
+	top: 250px;
+	left: 575px;
+}
+ .picture a:hover {
+	border-color: #d4d82d;
+}
+
+.picture a .note{
+	position:absolute;
+	bottom:-2em;
+	width: 7em;
+	padding:0.2em 0.5em;
+	border-radius: 5px;
+	background-color: #ffc;
+	text-align: center;
+	left: -1000em;
+	margin-left: -5em;
+	}
+
+.picture a:hover .note{
+	left: 25px;
+}

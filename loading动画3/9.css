@@ -1,0 +1,101 @@
+section.loader {
+  font-family: Consolas, monaco, monospace;
+  position:absolute;
+  background-color:#232427;  
+  color:#FF893A;
+  width:300px;
+  height:100px;
+  line-height:100px;
+  text-align:center;
+  font-size:38px;
+  letter-spacing:-6px;
+  top:50%; left:50%;
+  margin-left:-150px; margin-top:-50px;
+}
+
+section.loader  .chars .dots .char {
+  font-size:150%;
+  display:inline-block;
+}
+
+/* animation starts here */
+.dots .dot {
+  position:relative;
+  top:0; left:0; 
+}
+
+.dot._dot-1 {
+  animation:dot_1 1s ease-in-out infinite;
+  animation-fill-mode: backwards;
+  animation-direction: alternate;
+}
+
+.dot._dot-2 {
+  animation:dot_2 1.5s ease-in-out infinite;
+  animation-fill-mode: backwards;
+  animation-direction: alternate;
+  animation-delay:1s;
+}
+
+.dot._dot-3 {
+  animation:dot_3 1.8s ease-in-out infinite;
+  animation-fill-mode: backwards;
+  animation-direction: alternate;
+  animation-delay:0.5s;
+}
+.dots .dot {
+  position:relative;
+  top:0; left:0; 
+}
+@keyframes dot_1 {
+  0% {
+    top:0;
+    left:0;
+  }
+  
+  50% {
+    top:30px;
+    left:20px;
+  }
+  
+  100% {
+    top:0px;
+    left:40px;
+  }
+}
+
+
+@keyframes dot_2 {
+  0% {
+    top:0;
+    left:0;
+  }
+  
+  50% {
+    top:-30px;
+    left:20px;
+  }
+  
+  100% {
+    top:0px;
+    left:40px;
+  }
+}
+
+
+@keyframes dot_3 {
+  0% {
+    top:0;
+    left:0;
+  }
+  
+  50% {
+    top:-30px;
+    left:-40px;
+  }
+  
+  100% {
+    top:0px;
+    left:-80px;
+  }
+}

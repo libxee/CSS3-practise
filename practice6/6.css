@@ -1,0 +1,167 @@
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin:50px auto;
+  width:400px;
+  height:300px;
+  position: relative;
+}
+
+.container h1{
+  font-size: 2em;
+}
+.container img{
+  width:400px;
+  height:300px;
+}
+.box-wrapper {
+  position: absolute;
+  text-align: center;
+  width:100%;
+  height:100%;
+  padding:30px;
+}
+
+.box{
+  position: relative;
+  width:100%;
+  height:100%;
+  padding-top: 80px;
+}
+
+.title {
+  background-image: -webkit-linear-gradient(left,#D81159, #E53A40 10%, #FFBC42 20%, #75D701 30%, #30A9DE 40%,#D81159 50%, #E53A40 60%, #FFBC42 70%, #75D701 80%, #30A9DE 90%,#D81159);
+  color:transparent;
+  -webkit-background-clip: text;
+  background-size: 200% 100%;
+}
+
+/*下面通过CSS3的animation来实现帧动画。*/
+
+
+.title {
+  background-image: -webkit-linear-gradient(left,#D81159, #E53A40 10%, #FFBC42 20%, #75D701 30%, #30A9DE 40%,#D81159 50%, #E53A40 60%, #FFBC42 70%, #75D701 80%, #30A9DE 90%,#D81159);
+  color:transparent;
+  -webkit-background-clip: text;
+  background-size: 200%;
+  transform: translate(0,20px);
+  animation: flowlight 5s linear infinite;
+}
+
+/*
+通过translate将文字向下位移20px。*/
+.container:hover .title{
+  transform: translate(0);
+}
+
+
+
+@keyframes flowlight {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.box::before {
+  content:'';
+  border:3px solid #fff;
+  border-width: 0 3px;
+  position: absolute;
+  width:100%;
+  height:0;
+  top:50%;
+  left:0;
+  box-sizing: border-box;
+}
+
+
+.box::after {
+  content:'';
+  border:3px solid #fff;
+  border-width: 3px 0;
+  position: absolute;
+  width:0;
+  height:100%;
+  top:0;
+  left:50%;
+  box-sizing: border-box;
+}
+/*
+实现边框扩展的的动画效果，并加上过渡效果。 */
+
+.container:hover .box::before{
+  height:100%;
+  top:0;
+}
+
+.container:hover .box::after {
+  width: 100%;
+  left:0;
+}
+
+.box::before {
+  transition: all .8s;
+}
+
+.box::after {
+  transition: all .8s;
+}
+
+/*
+背景图的模糊处理
+*/
+.container:hover .img {
+   filter: blur(2px);
+   -webkit-filter: blur(2px);
+   -moz-filter: blur(2px);
+   -ms-filter: blur(2px);
+}
+/*需要设置box-wrapper容器的z-index属性，来凸显各个容器的层级。*/
+.box-wrapper {
+  position: absolute;
+  text-align: center;
+  width:100%;
+  height:100%;
+  padding:30px;
+  z-index: 99;
+}
+
+
+.box{
+  opacity: 0;
+  transition: opacity .8s;
+}
+
+
+.title {
+  transition: transform .8s,opacity .8s;
+}
+
+.container:hover .box{
+  opacity: 1;
+}
+
+.container:hover .title{
+  opacity: 1;
+}
+
+/*
+现在，我们已经实现了所有的动画效果，看起来还是不错吧，CSS3完成动画效果的能力还是很强大的吧。
+总结
+本文用到的CSS3属性：
+linear-gradient
+webkit-background-clip
+-webkit-text-fill-color
+animation
+transform
+transition
+filter
+由于CSS3的兼容性，在完成此效果时，只在Chrome浏览器进行测试，

@@ -1,0 +1,58 @@
+body{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+}
+.demo, .pic, .mask, .border{
+	width: 	300px;
+	height: 300px;
+	position: absolute;
+	margin-left: 50%;
+	left: -150px;
+	border-radius: 	50%;
+}
+.demo{
+	top: 150px;
+}
+.pic img{
+	width: 	300px;
+	height: 300px;
+	position: absolute;
+		border-radius: 	50%;	
+}
+.demo:hover .mask{
+	background: rgba(0,0,0,0.3);
+	transition:  all 0.3s;
+}
+.mask h2{
+	display: table;
+	position: absolute;
+	margin-left: 50%;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 100px;
+	color: #fff;
+	margin:0 auto;
+	line-height: 100px;
+}
+.demo:hover .mask  h2{
+	font-size: 150%;
+	font-weight: 300;
+	transition:  all 0.3s;
+}
+.border{
+		border:10px solid ;
+		border-top-color: #3ba8dc;
+		border-left-color:#5f8da3;
+		border-right-color: #3abcb5;
+		border-bottom-color: #a6ebe7;
+		transform: rotate(0deg);
+		box-sizing: border-box;
+}
+.demo:hover .border{
+	transform: rotate(1080deg);
+	transition: all 2s ease-in;
+}

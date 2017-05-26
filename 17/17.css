@@ -1,0 +1,52 @@
+*{
+	margin:0;
+	padding:0; 
+}
+.box{
+	min-height: 100vw;
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+}
+.header{	
+	display: -webkit-flex;
+	background: green;
+	-webkit-flex: 1;
+	text-align: center;
+
+	-webkit-flex-direction: column;
+}
+.banner,.nav{
+	display: -webkit-flex;
+
+}
+.banner{
+	justify-content: space-around;
+	-webkit-flex:1;
+	align-items: center;
+}
+.nav{
+	-webkit-flex:2;
+	align-items: center;
+	background:gray;
+}
+.main{
+	display: -webkit-flex;
+	background: red;;
+	-webkit-flex: 5;
+}
+.main .left{
+	-webkit-flex:1;
+	background: black;
+}
+.main .center{
+	-webkit-flex:5;
+	background: yellow;
+}
+.main .right{
+	-webkit-flex:1;
+	background: white;
+}
+.footer{
+	-webkit-flex: 1;
+	background: blue;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jquery练习</title>
+	<style type="text/css">	
+		/*ul li{
+			margin:0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+			float: left;
+			display: inline-block;
+			margin-right:20px;
+			border:1px solid #aaa;
+			position: relative;
+		}
+		.tip{
+			position: absolute;
+			top: 500px;
+			left: 500px;
+		}
+		img{border: none;
+			width: 300px;}*/
+	
+		
+	</style>
+	<script src="jquery-3.2.0.min.js"></script>
+	<script >
+		/*$(document).ready(function(){
+			
+			$("a.tooltip").mouseover(
+				function(e){
+					var mytitle;
+					this.mytitle=this.title;
+					this.title="";
+					var imgtitle=this.mytitle;
+					var tooltip="<div id='tooltip'><img src='"+this.href+"' alt='预览图'/>"+imgtitle+"<\/div>";
+					$("body").append(tooltip);
+					$("#tooltip").addClass("tip")
+						.show("fast");
+				}).mouseout(function(){var mytitle="aaaa";
+					this.title=mytitle;
+					$("#tooltip").remove();
+				}).mousemove(function(e){var mytitle;
+					this.title=mytitle;
+					$("#tooltip")
+					.css({
+						
+						"top":"(e.pageY+500) + 'px'",
+							"left":"(e.pageX+400) + 'px'"
+					});
+				});
+
+
+				
+
+		})*/
+
+
+$(document).ready(function(){
+	var $comment=$("#com");
+	
+	//绑定big事件
+	$(".bigger").click(function(){
+		if(!$comment.is(":animated")){
+			if($comment.height()<500){
+				$comment.animate({height:"+=50"},1000)
+				.animate({width:"+=50"},1000);
+			}
+		}
+	});
+
+	//绑定small事件
+	$(".smaller").click(function(){
+		if (!$comment.is(":animated")) {
+			if ($comment.height()>10) {
+				$comment.animate({height:"-=50"},1000)
+				.animate({width:"-=50"},1000);
+			}
+		}
+	});
+
+});
+
+
+	</script>
+</head>
+<body>
+
+	<div class="msg">
+		<div class="hed">
+			<span class="bigger">bigger</span>
+			<span class="smaller">smaller</span>
+		</div>
+		<div>
+			<textarea id="com" rows="5" cols="20">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</textarea>
+		</div>
+	</div>
+	<!--<ul>
+		<li><a href="img/640.jpg" class="tooltip" title="辣鸡"><img src="img/640.jpg" alt="辣鸡1"></a></li>
+		<li><a href="img/640.jpg" class="tooltip" title="辣鸡"><img src="img/640.jpg" alt="辣鸡1"></a></li>
+		<li><a href="img/640.jpg" class="tooltip" title="辣鸡"><img src="img/640.jpg" alt="辣鸡1"></a></li>
+		<li><a href="img/640.jpg" class="tooltip" title="辣鸡"><img src="img/640.jpg" alt="辣鸡1"></a></li>
+	</ul>-->
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+/*.loader{
+	position: absolute;
+	top: 100px;
+	margin-left: 50%;
+	transform:translateX(-50%);
+
+}
+
+.dot{
+	margin: 10px;
+	width:24px;
+	height:24px;
+	background: #fbc2eb;
+	border-radius: 100%;
+	display: inline-block;
+	animation: slide 1s infinite;
+}
+.dot:nth-child(1){
+	-webkit-animation-delay:100ms;
+	animation-delay:100ms;
+}
+.dot:nth-child(2){
+	-webkit-animation-delay:200ms;
+	animation-delay:200ms;
+
+
+}
+.dot:nth-child(3){
+	-webkit-animation-delay:300ms;
+	animation-delay:300ms;
+}
+.dot:nth-child(4){
+	-webkit-animation-delay:400ms;
+	animation-delay:400ms;
+}
+
+.dot:nth-child(5){
+	-webkit-animation-delay:500ms;
+	animation-delay:500ms;
+}
+	
+
+@keyframes slide{
+	0%{
+		transform: scale(1);
+
+	}
+	50%{
+		transform: scale(2);
+		background: #a6c1ee;
+		opacity: 0.5;
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+
+*/
+.center {
+  margin: 30px auto 0;
+  width: 200px;
+} 
+
+.sandwatch-holder {
+  position: relative;
+  width: 43px;
+  animation: rotateHolder 2s linear infinite;
+}
+
+/*动画并非是一直旋转并且top流下，bottom充满。
+等到top转到下部执行bottom的动画，bottom。。。
+而是在整个rotatehoder的动画前90%不动，后10%转动180，之后迅速归回原位
+在视觉上形成连贯的视觉效果*/
+@keyframes rotateHolder {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  90% {
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    transform: rotate(180deg);
+  }
+}
+	/*上部分吓下部分之间内的蓝线*/
+.sandwatch-holder:after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background: #1bb5e5;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: -17px 0 0;
+  animation: moveStream 2s linear infinite;
+}
+
+/*上下部部分*/
+.sandwatch-top, .sandwatch-bottom {
+  width: 35px;
+  height: 35px;
+  position: relative;
+  border: 6px solid #a56818;
+  border-right: 2px solid #a56818;
+  border-top: 2px solid #a56818;
+  border-radius: 50px 100px 50px 30px;
+  overflow: hidden;
+}
+
+.sandwatch-top {
+  transform: rotate(-45deg);
+}
+
+
+
+/*连接上下两部分的，处于中部，填补bottom的上外边距 line-125*/
+.sandwatch-holder:before {
+  position: absolute;
+  content: "";
+  width: 8px;
+  height: 12px;
+  background: #a56818;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sandwatch-bottom {
+  transform: rotate(135deg);
+  margin: 12px 0 0;
+}
+
+
+/*蓝色液体 */
+.sandwatch-top:before, .sandwatch-bottom:before {
+  content: "";
+  position: absolute;
+  width:100%;
+  height: 100%;
+  background: #1bb5e5;
+  border-radius: 0 100px 0 0;
+}
+/*top液体只能减少 不能增加*/
+.sandwatch-top:before {
+  transform: translate(0, 0);
+  animation: dropSand 2s linear infinite;
+}
+
+
+/*bottom液体只能增加 不能减少*/
+.sandwatch-bottom:before {
+  transform: translate(25px, -25px);
+  border-radius: 0 0 0 12px;
+  animation: fillSand 2s linear infinite;
+}
+
+@keyframes dropSand {
+  100% {
+    transform: translate(-22px, 22px);
+  }
+}
+
+@keyframes fillSand {
+  4% {
+    transform: translate(25px, -25px);
+  }
+  
+  100% {
+    transform: translate(-1px, 0);
+  }
+}
+
+@keyframes moveStream {
+  10% {
+    margin: 17px 0 0;
+  }
+  
+  100% {
+    margin: 17px 0 0;
+  }
+}
