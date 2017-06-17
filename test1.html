@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="utf-8"/>
+ <meta name="viewpoint" content="width=device-width,initial-scale=1,user-scalable="no">
+ <title>20170101</title>
+ <style type="text/css">
+ a{text-decoration:none;color:#3DBBF5;}
+ .wrapper{width:600px;height:450px;background:#001032;margin:20px auto;text-align:center;box-shadow:0 0 12px 2px hsla(0,20%,30%,0.5);padding:10px 15px;position:relative;}
+ .effect{position:relative;cursor:pointer;}
+ .effect:hover{color:#02a0e9;}
+ .effect:before{width:100%;display:inline-block !important;position:absolute;height:1px;background:#02a0e9;transition:all 0.4s ease-in-out;-webkit-transition:all 0.4s ease-in-out;-moz-transition:all 0.4s ease-in-out;transform:scale(0,1);content:'';bottom:-5px;left:0;}
+ .effect:hover:before{transform:scale(1);-webkit-transform:scale(1);}
+ #lunBo{margin-top:20px;overflow:hidden;height:450px;width:600px;position:relative;}
+ #list{position:absolute;z-index:22;height:450px;width:px;}
+ #list img{float:left;}
+ #buttons { position: absolute; height: 20px; width: 150px; z-index: 99; bottom: 20px; left: 40%;}
+    span { cursor: pointer; float: left; width: 10px; height: 5px; background: #333; margin-right: 10px;}
+     .on { background: yellow;transition:all 0.4s ease-in-out;-webkit-transition:all 0.4s ease-in-out;-moz-transition:all 0.4s ease-in-out;transform:scale(1,4);-ms-transform:scale(1,4);-moz-transform:scale(1,4);-webkit-transform:scale(1,4);transform-origin:0% 0%;-webkit-transform-origin:0% 100%;-moz-transform-origin:0% 100%;}
+  .arrow { cursor: pointer; display: none; line-height: 39px; text-align: center; font-size: 36px; font-weight: bold; width: 40px; height: 100px; line-height:100px;position: absolute; z-index: 92; top: 30%; background-color: RGBA(0,0,0,.3); color: #fff;}
+    .arrow:hover { background-color: RGBA(0,0,0,.7);}
+    #lunBo:hover .arrow { display: block;}
+    #prev { left: 0px;}
+    #next { right: 0px;}
+ </style>
+ </head>
+ <body>
+ <div class="wrapper">
+  <a class="effect" href="#">2016完了,2017来了</a>
+  <div id="lunBo">
+  <div id="list" style="left:0px;">
+   <img src="http://pic.qjimage.com/tongrorf0056/high/tipt2293601a.jpg" alt="1"/>
+   <img src="http://pic.qjimage.com/tongrorf0056/high/tipt2293601a.jpg" alt="2">
+   <img src="http://pic.qjimage.com/tongrorf0056/high/tipt2293601a.jpg" alt="3"/>
+   <img src="http://pic.qjimage.com/tongrorf0056/high/tipt2293601a.jpg" alt="4"/>
+   <img src="http://pic.qjimage.com/tongrorf0056/high/tipt2293601a.jpg" alt="5"/>
+   <img src="http://pic.qjimage.com/tongrorf0056/high/tipt2293601a.jpg" alt="5"/>
+   <img src="http://pic.qjimage.com/tongrorf0056/high/tipt2293601a.jpg" alt="6"/>
+  </div>
+  <div id="buttons">
+   <span index="1" class="on"></span>
+   <span index="2"></span>
+   <span index="3"></span>
+   <span index="4"></span>
+   <span index="5"></span>
+  </div>
+  <a  id="prev" class="arrow"><</a>
+  <a id="next" class="arrow">></a>
+  </div>
+ </div>
+ <script>
+ window.onload = function(){
+  var lunBo = document.getElementById('lunBo');
+  var list = document.getElementById('list');
+  var buttons = document.getElementById('buttons').getElementsByTagName('span');
+  //console.log(buttons);
+  var prev = document.getElementById('prev');
+      var next = document.getElementById('next');
+  var index = 1;
+  var animated = false;
+  var interval = 3000;
+  var timer;
+  //显示按钮的索引
+  function showButton(){
+  for(var i = 0 ; i < buttons.length ; i++){
+   if( buttons[i].className == 'on' ){
+   buttons[i].className = '';
+   break;
+   };
+  };
+  buttons[index - 1].className='on';
+  };
+  function play(){
+  timer = setTimeout(function () {
+          next.onclick();
+          play();
+        }, interval);
+  };
+  function stop(){
+  clearTimeout(timer);
+  };
+  //向前按钮
+  next.onclick = function () {
+        if (animated) {
+          return;
+        }
+        if (index == 5) {
+          index = 1;
+        }
+        else {
+          index += 1;
+        }
+        animate(-600);
+        showButton();
+      };
+      prev.onclick = function () {
+        if (animated) {
+          return;
+        }
+        if (index == 1) {
+          index = 5;
+        }
+        else {
+          index -= 1;
+        }
+        animate(600);
+        showButton();
+      };
+  //parseInt()转换为纯数值
+  function animate(offset){
+  animated = true;
+  var newLeft = parseInt(list.style.left) + offset; //目标值
+  var time = 300; //位移总时间为300
+  var interval = 10; //
+  var speed = offset/(Math.floor(time/interval)); //每次位移量
+  function go(){
+  if( (speed < 0 && parseInt(list.style.left) > newLeft) || ( speed > 0 && parseInt(list.style.left) < newLeft) ){
+   list.style.left = parseInt(list.style.left) + speed + 'px';
+    setTimeout(go,interval);
+  }else{
+   animated = false;
+   list.style.left = newLeft+ 'px';  //现在的位移
+   if( newLeft > -600){           //假的辅助图
+   list.style.left = -3000 + 'px';
+   }
+   if( newLeft < -3000){
+   list.style.left = -600 + 'px';
+   }
+  }
+  };
+  go();  
+  };
+
+
+
+  //小按钮
+  for(var i=0;i < buttons.length;i++){
+  buttons[i].onclick = function(){
+
+  if(this.className == 'on'){
+   return;
+  };
+   var myIndex = parseInt(this.getAttribute('index'));
+   var offset = -600 * (myIndex - index);
+
+   animate(offset);
+          index = myIndex;
+          showButton();
+  }
+  }
+  lunBo.onmouseout = play;
+  lunBo.onmouseover = stop;
+  play();
+ }
+ </script>
+ </body>
+</html>

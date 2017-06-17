@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3d_slider_test</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+.slider_3d{
+    position: absolute;
+    width: 100%;
+    height: 200px;   
+    background-color: #fff;
+    zoom:2}
+
+.slider_3d #stage {
+    width: 100%;
+    height: 200px;
+    perspective: 800px;
+    position: relative;
+}
+
+.slider_3d #container {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -50px;
+    cursor: pointer;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    transform:rotateY(120deg);
+}
+
+.slider_3d .piece {
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,.5);
+    transition: opacity 1s,transform 1s;
+    position: absolute;
+    bottom: 0
+}
+
+.slider_3d .example {
+    width: 200px;
+    height: 100px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,.5);
+    transition: opacity 1s,transform 1s;
+    position: absolute;
+    bottom: 0;
+    background-size: cover;
+}
+
+.slider_3d .example:nth-child(1) {
+    transform: rotateY(0) translateZ(250px);
+     background-image: url();
+}
+
+.slider_3d .example:nth-child(2) {
+    transform: rotateY(60deg) translateZ(250px);
+     background-image: url();
+}
+
+.slider_3d .example:nth-child(3) {
+    transform: rotateY(120deg) translateZ(250px);
+    background-image:url();
+}
+
+.slider_3d .example:nth-child(4) {
+    transform: rotateY(180deg) translateZ(250px);
+    background-image: url();
+}
+
+.slider_3d .example:nth-child(5) {
+    transform: rotateY(240deg) translateZ(250px);
+     background-image: url();
+}
+
+.slider_3d .example:nth-child(6) {
+    transform: rotateY(300deg) translateZ(250px);
+     background-image: url();
+}
+
+#btn_list {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+   justify-content: space-around;
+
+}
+.btn {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border:1px solid  #1dc6f6;
+    border-radius: 50%;
+} 
+.on{
+    background-color: #1dc6f6;
+    transition: all 1s;
+    }
+    </style>
+</head>
+<body>     
+    <div class="slider_3d">
+        <div id="stage">
+            <div id="container" style="transform:rotateY(0deg);animation-play-state:running; ;
+ ">
+                 <div class="example"></div>
+                 <div class="example"></div>
+                 <div class="example"></div>
+                 <div class="example"></div>
+                 <div class="example"></div>
+                 <div class="example"></div>
+            </div>
+         </div>
+
+         <div id="btn_list"> 
+          
+             <span class="btn  on" index=1></span>
+             <span class="btn" index=2></span>
+             <span class="btn" index=3></span>
+             <span class="btn" index=4></span>
+             <span class="btn" index=5></span>
+             <span class="btn" index=6 ></span>
+         </div>
+     </div>
+<script type="text/javascript">
+    var pictures=document.querySelectorAll('.example');
+    var btns=document.querySelectorAll('.btn');
+    var ctn=document.querySelector('#container');
+    var state=ctn.style['animationPlayState'];
+    var btn_list=document.getElementById('btn_list');
+    var i=1;
+
+
+   for (let i = 0; i < btns.length; i++) {
+       btns[i].index = i
+       btns[i].onclick = function () {      
+        btns.forEach(function (span) {
+          span.classList.remove('on')
+        })
+        this.classList.add('on');
+        var index=this.getAttribute("index");
+        console.log(index);
+        ctn.style.webkitTransform="rotateY("+index*60+"deg)"
+      }
+    }
+   
+   var timer
+function play(){
+    var j=1;let i=1
+  deg=60*j;
+  timer =setInterval(function () {
+    ctn.style.webkitTransform="rotateY("+deg*j+"deg)";  
+    j++;
+    if(i<=4){ i++;}
+    else if (i=5) {i=0};
+    btns.forEach(function (span) {
+          span.classList.remove('on')
+        })
+        btns[i].classList.add('on');
+  },1000);}
+
+function stop(){
+  clearTimeout(timer);
+  };
+btn_list.onmouseout = play;
+btn_list.onmouseover = stop;
+</script>
+
+</body>
+</html>
