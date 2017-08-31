@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas练习</title>
+	<meta charset="utf-8">
+</head >
+<style type="text/css">
+	body{
+		display: flex;
+		flex-direction: column;		
+	}
+	.con{
+		margin: 0 auto;
+		border:2px  solid #666;
+		display: inline-flex;
+	}
+	span{
+		text-align: center;
+		width: 100px;
+		height: 50px;
+		border:2px solid black;
+		margin: 0 auto;
+		margin-top: 50px;
+		line-height: 50px;
+	}
+</style>
+<body>
+	<div class="con"><canvas id="canvas" height="500px" width="1000px"></canvas>
+	<canvas id="canvas2" height="50px" width="100px"></canvas></div>
+	<span id="download">点击下载</span>
+	<script type="text/javascript">
+		/*window.onload=function() {
+			var canvas=document.getElementById('canvas')
+			var ctx=canvas.getContext('2d');
+			//三角形
+			
+			ctx.beginPath();
+			ctx.moveTo(25,25);
+			ctx.lineTo(105,25);
+			ctx.lineTo(25,105);
+			ctx.lineWidth=1;
+			ctx.closePath();
+			ctx.fill();
+			ctx.stroke();
+			
+
+			//圆形
+			ctx.beginPath();
+			ctx.arc(150,150,150,0,50);
+			ctx.stroke();
+			ctx.fill()
+				//画一系列的圆
+						for(i=0;i<=4;i++){
+							for(j=0;j<4;j++){
+							ctx.strokeStyle = 'rgb(0,'+Math.floor(255-42.5*i)+','+Math.floor(255-42.5*j)+')';
+
+							ctx.beginPath();
+							ctx.arc(130+i*25,70+j*25,10,0,i);
+							ctx.stroke();
+							
+							ctx.closePath();}
+						}
+			//矩形
+			ctx.beginPath();
+			ctx.fillRect(100,50,50,50);
+			ctx.strokeRect(105,55,40,40);
+			ctx.clearRect(110,60,30,30);
+			ctx.closePath();
+
+		
+			//用下贝塞尔曲线
+			
+			//来个笑脸
+			
+			ctx.arc(500,200,150,0,50);
+			ctx.moveTo(600,160);
+			ctx.arc(560,160,40,0,Math.PI,true);
+			ctx.moveTo(450,160);
+			ctx.arc(410,160,40,0,Math.PI,true);
+			ctx.moveTo(600,200);
+			ctx.arc(500,200,100,0,Math.PI);
+			
+			ctx.stroke();
+			
+
+
+
+		}*/
+		/*var sun = new Image();
+var moon = new Image();
+var earth = new Image();
+function init() {
+  sun.src = 'https://mdn.mozillademos.org/files/1456/Canvas_sun.png';
+  moon.src = 'https://mdn.mozillademos.org/files/1443/Canvas_moon.png';
+  earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png';
+  window.requestAnimationFrame(draw);
+}
+
+function draw() {
+  var ctx = document.getElementById('canvas').getContext('2d');
+
+  ctx.globalCompositeOperation = 'destination-over';
+  ctx.clearRect(0, 0, 300, 300); // clear canvas
+
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+  ctx.strokeStyle = 'rgba(0, 153, 255, 0.4)';
+  ctx.save();
+  ctx.translate(150, 150);
+
+  // Earth
+  var time = new Date();
+  ctx.rotate(((2 * Math.PI) / 60) * time.getSeconds() + ((2 * Math.PI) / 60000) * time.getMilliseconds());
+  ctx.translate(105, 0);
+  ctx.fillRect(0, -12, 50, 24); // Shadow
+  ctx.drawImage(earth, -12, -12);
+
+  // Moon
+  ctx.save();
+  ctx.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds());
+  ctx.translate(0, 28.5);
+  ctx.drawImage(moon, -3.5, -3.5);
+  ctx.restore();
+ 
+  ctx.restore();
+  
+  ctx.beginPath();
+  ctx.arc(150, 150, 105, 0, Math.PI * 2, false); // Earth orbit
+  ctx.stroke();
+ 
+  ctx.drawImage(sun, 0, 0, 300, 300);
+
+  window.requestAnimationFrame(draw);
+}
+
+init();
+*/
+	/*var me=new Image();
+	var she=new Image();
+	function init(){
+		me.src="http://tupian.aladd.net/2015/11/1354.jpg";
+		she.src="http://pic29.photophoto.cn/20131009/0005018344382834_b.jpg";
+		window.requestAnimationFrame(draw);
+	}
+	function draw () {
+		var canvas=document.getElementById("canvas");
+		ctx=canvas.getContext('2d');
+		ctx.globalCompositeOperation = 'destination-over';
+		ctx.clearRect(0,0,300,300);
+ 		ctx.strokeStyle = 'rgba(0, 153, 255, 0.4)';
+ 		ctx.save();
+
+ 		ctx.translate(150,150);
+ 		ctx.drawImage(she, -50, -50, 100, 100);
+ 		var time=new Date();
+ 		ctx.rotate(((2 * Math.PI) / 60) * time.getSeconds() + ((2 * Math.PI) / 60000) * time.getMilliseconds());
+ 		ctx.translate(105,0);
+ 		ctx.rotate(-((2 * Math.PI) / 60) * time.getSeconds() -((2 * Math.PI) / 60000) * time.getMilliseconds());
+ 		ctx.drawImage(me,-30,-30,60,60);
+ 		ctx.save();
+
+ 		ctx.restore();
+ 
+  		ctx.restore();
+  
+  		ctx.beginPath();
+  		ctx.arc(150, 150, 105, 0, Math.PI * 2, false);//orbit
+  		ctx.stroke();
+  		window.requestAnimationFrame(draw);
+ 	}
+ 	init();*/
+
+ 	//画一个小球
+/* var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var raf;
+
+var ball = {
+  x: 100,
+  y: 100,
+  vx: 5,
+  vy: 2,
+  radius: 25,
+  color: 'blue',
+  draw: function() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
+    ctx.closePath();
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  }
+};
+
+function draw() {
+  ctx.clearRect(0,0, canvas.width, canvas.height);
+  ball.draw();
+  ball.x += ball.vx;
+  ball.y += ball.vy;
+
+  if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+  ball.vy = -ball.vy;
+}
+if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+  ball.vx = -ball.vx;
+}
+  raf = window.requestAnimationFrame(draw);
+}
+
+canvas.addEventListener('mouseover', function(e){
+  raf = window.requestAnimationFrame(draw);
+});
+
+canvas.addEventListener("mouseout",function(e){
+  window.cancelAnimationFrame(raf);
+});
+
+ball.draw();*/
+
+var canvas=document.getElementById('canvas');
+var ctx=canvas.getContext('2d');
+//test
+var canvas2=document.getElementById('canvas2');
+var ctx2=canvas2.getContext('2d');
+ctx2.beginPath();
+			ctx2.fillRect(0,0,50,50);			
+			ctx2.closePath();
+//
+var raf;
+var btn=document.getElementById('download');
+var ball ={
+	x:100,
+	y:100, 
+	vx: 10,
+	vy:10,
+	
+	radius:10,
+	color:'blue',
+	drew:function(){
+		ctx.beginPath();
+		
+		ctx.arc(this.x,this.y,this.radius,0,Math.PI*2);
+		ctx.closePath();
+		ctx.fillStyle=this.color;
+		ctx.fill();
+	}
+};
+
+ball.drew();
+
+
+canvas.addEventListener('mouseover',function(e){
+	raf= window.requestAnimationFrame(drew);
+})
+canvas.addEventListener('mouseout',function(e){
+	window.cancelAnimationFrame(raf);
+})
+
+function drew(){
+	ctx.clearRect(0,0,canvas.width,canvas.height);
+	ball.drew();
+	ball.x+=ball.vx;
+	ball.y+=ball.vy;
+
+	if(ball.x+ball.radius>=canvas.width||ball.x<0){
+		ball.vx = - ball.vx;
+	}
+	if(ball.y+ball.radius>=canvas.height||ball.y<=0){
+		ball.vy = -ball.vy;
+	};
+	raf=window.requestAnimationFrame(drew);
+
+}
+var imgdata=ctx2.getImageData(0,0,50,500);
+console.log(imgdata);
+ctx.putImageData(imgdata,0,0);
+//下载模块
+btn.addEventListener('click',function(){
+	var type='jpg';
+	download(type)
+})
+//图片下载操作,指定图片类型
+function download(type) {
+    //设置保存图片的类型
+    var imgdata = canvas.toDataURL(type);
+    //将mime-type改为image/octet-stream,强制让浏览器下载
+    var fixtype = function (type) {
+        type = type.toLocaleLowerCase().replace(/jpg/i, 'jpeg');
+        var r = type.match(/png|jpeg|bmp|gif/)[0];
+        return 'image/' + r;
+    }
+    imgdata = imgdata.replace(fixtype(type), 'image/octet-stream')
+    //将图片保存到本地
+    var saveFile = function (data, filename) {
+        var link = document.createElement('a');
+        link.href = data;
+        link.download = filename;
+        var event = document.createEvent('MouseEvents');
+        event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        link.dispatchEvent(event);
+    }
+    var filename = new Date().toLocaleDateString() + '.' + type;
+    saveFile(imgdata, filename);
+}
+	</script>
+</body>
+</html>
